@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import { MdEdit } from '../node_modules/react-icons/md'
-import {MdDeleteForever} from "../node_modules/react-icons/md"
+import {MdDeleteForever,MdSave} from "../node_modules/react-icons/md"
 
 const App = () => {
   // ALL use satate
@@ -102,14 +102,14 @@ const App = () => {
         {/* This div is for input filed and add button👇 */}
         <div className='input-container'>
           {/* inputfield */}
-          <input type="text" placeholder='Enter your Todo 😉'
+          <input type="text" placeholder='Enter your Todo'
          onChange={(e)=>setUserInput(e.target.value)}
             ref={ref}></input>
           {/* add button */}
           <button onClick={addToHandler}>Add</button>
         </div>
         {/* if we dont have any todos in array then this below labble will display🤗 */}
-        {todos.length===0 && <h2 className='lable'>Start adding todos🤦‍♂️.........</h2>}
+        {todos.length===0 && <h2 className='lable'>Start adding todos.........</h2>}
 
           {/* this div for to store the todo's */}
         <div className='todos-display-container'>
@@ -121,8 +121,8 @@ const App = () => {
                   <input  className='inside-todolist' type="text" defaultValue={todo.text}
                     onChange={(e)=>setEditText(e.target.value)}
                      />
-                  <button className="saveIcon" onClick={()=>saveEditTodoHandler(todo.id)}>Save</button>
-                  {/* <MdSave  onClick={()=>saveEditTodoHandler(todo.id)} /> */}
+                  {/* <button onClick={()=>saveEditTodoHandler(todo.id)}>Save</button> */}
+                  <MdSave onClick={()=>saveEditTodoHandler(todo.id)} />
                 </div>  : <>
                   <div>
                 <h4 className='input-text'>{todo.text}</h4>
